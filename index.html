@@ -15,16 +15,17 @@
     <meta property="og:description" content="Reliable 24/7 ECR Taxi Service in Chennai. Book airport transfers, local sightseeing, and outstation cabs instantly.">
     <meta property="og:type" content="website">
     
-    <!-- Tailwind & Icons -->
+    <!-- Tailwind, Icons, Alpine, and AOS (Animations) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Alpine.js for Interactive Mobile Menu -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
         [x-cloak] { display: none !important; }
-        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)); }
+        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)); }
+        html { scroll-behavior: smooth; }
     </style>
 
     <!-- Schema.org JSON-LD Structured Data for Local SEO -->
@@ -112,7 +113,7 @@
     <!-- Hero Section -->
     <section class="relative pt-24 pb-32 min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0be2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
         <div class="absolute inset-0 hero-gradient"></div>
-        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-10">
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-10" data-aos="zoom-in" data-aos-duration="1000">
             <div class="inline-block bg-yellow-400 text-gray-900 font-bold px-4 py-1 rounded-full mb-6 uppercase tracking-wider text-sm shadow-md">
                 <i class="fas fa-clock mr-1"></i> Available 24/7 on ECR
             </div>
@@ -123,8 +124,8 @@
                 Safe, clean, and reliable taxi service across Chennai. Your comfort is our destination.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="tel:09363538190" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full text-xl font-bold hover:bg-yellow-500 transition shadow-[0_0_20px_rgba(250,204,21,0.4)] transform hover:-translate-y-1 w-full sm:w-auto">
-                    <i class="fas fa-phone mr-2"></i> Book Now
+                <a href="#booking" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full text-xl font-bold hover:bg-yellow-500 transition shadow-[0_0_20px_rgba(250,204,21,0.4)] transform hover:-translate-y-1 w-full sm:w-auto">
+                    Book Now <i class="fas fa-arrow-down ml-2"></i>
                 </a>
                 <a href="https://wa.me/919363538190" class="bg-white text-green-600 px-8 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1 w-full sm:w-auto">
                     <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
@@ -134,7 +135,7 @@
     </section>
 
     <!-- Quick Features -->
-    <section class="py-12 bg-gray-900 text-white relative z-20 -mt-10 mx-4 md:mx-auto max-w-6xl rounded-2xl shadow-2xl">
+    <section class="py-12 bg-gray-900 text-white relative z-20 -mt-10 mx-4 md:mx-auto max-w-6xl rounded-2xl shadow-2xl" data-aos="fade-up">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 text-center">
             <div>
                 <i class="fas fa-shield-alt text-4xl text-yellow-400 mb-4"></i>
@@ -154,55 +155,181 @@
         </div>
     </section>
 
+    <!-- Interactive WhatsApp Booking Section -->
+    <section class="py-24 bg-gray-50" id="booking">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border-t-8 border-green-500" data-aos="fade-up">
+                <div class="text-center mb-10">
+                    <div class="inline-block bg-green-100 text-green-700 rounded-full px-4 py-1 mb-4 font-bold text-sm">
+                        <i class="fab fa-whatsapp mr-1"></i> INSTANT BOOKING
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">Book Your Ride via WhatsApp</h2>
+                    <p class="text-gray-600 text-lg">Fill in your journey details below to instantly send a formatted booking request to our dispatch team.</p>
+                </div>
+                
+                <form id="wa-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">Pickup Location <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <i class="fas fa-map-marker-alt absolute left-4 top-4 text-gray-400"></i>
+                                <input type="text" id="pickup" placeholder="e.g. Chennai Airport" required class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-50">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">Drop Location <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <i class="fas fa-location-arrow absolute left-4 top-4 text-gray-400"></i>
+                                <input type="text" id="drop" placeholder="e.g. ECR Muthukadu" required class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-50">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">Date & Time <span class="text-red-500">*</span></label>
+                            <input type="datetime-local" id="datetime" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">Vehicle Type</label>
+                            <select id="vehicle" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-50 appearance-none">
+                                <option>Sedan (Etios/Dzire) - 4 Seats</option>
+                                <option>SUV (Innova/Ertiga) - 6 Seats</option>
+                                <option>Innova Crysta (Premium) - 7 Seats</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="button" onclick="sendWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold text-xl py-4 rounded-xl transition-all shadow-[0_0_15px_rgba(34,197,94,0.4)] transform hover:-translate-y-1 flex justify-center items-center mt-4">
+                        <i class="fab fa-whatsapp text-2xl mr-3"></i> Send Booking Request
+                    </button>
+                    <p class="text-center text-sm text-gray-500 mt-4"><i class="fas fa-lock mr-1"></i> No payment required now. Pay directly to the driver after the ride.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Fleet -->
+    <section class="py-24 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Our Fleet</h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+                <p class="mt-6 text-xl text-gray-600">Choose the perfect vehicle for your journey.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Sedan -->
+                <div class="bg-gray-50 rounded-3xl p-10 text-center shadow-lg hover:shadow-2xl transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-car-side text-7xl text-gray-300 group-hover:text-yellow-400 transition duration-300 mb-6 block"></i>
+                    <h3 class="text-2xl font-bold mb-2">Comfort Sedan</h3>
+                    <p class="text-yellow-600 font-bold mb-4 bg-yellow-100 inline-block px-4 py-1 rounded-full text-sm">Etios, Dzire</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Perfect for city rides and airport drops. Comfortable seating for 4 passengers with standard luggage.</p>
+                </div>
+                <!-- SUV -->
+                <div class="bg-white rounded-3xl p-10 text-center shadow-xl hover:shadow-2xl transition duration-300 relative border-2 border-yellow-400 group transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-yellow-400 text-gray-900 font-bold px-4 py-1 rounded-bl-2xl rounded-tr-xl text-sm shadow-md">Most Popular</div>
+                    <i class="fas fa-truck-monster text-7xl text-gray-800 group-hover:text-yellow-400 transition duration-300 mb-6 block mt-2"></i>
+                    <h3 class="text-2xl font-bold mb-2">Spacious SUV</h3>
+                    <p class="text-yellow-600 font-bold mb-4 bg-yellow-100 inline-block px-4 py-1 rounded-full text-sm">Innova, Ertiga</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Ideal for families, outstation trips, and extra luggage. Seating for 6-7 passengers.</p>
+                </div>
+                <!-- Premium -->
+                <div class="bg-gray-50 rounded-3xl p-10 text-center shadow-lg hover:shadow-2xl transition duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-car text-7xl text-gray-300 group-hover:text-yellow-400 transition duration-300 mb-6 block"></i>
+                    <h3 class="text-2xl font-bold mb-2">Premium SUV</h3>
+                    <p class="text-yellow-600 font-bold mb-4 bg-yellow-100 inline-block px-4 py-1 rounded-full text-sm">Innova Crysta</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Experience luxury and ultimate comfort on long journeys. Premium seating and suspension.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Overview -->
     <section class="py-24 bg-gray-50">
         <div class="container mx-auto px-4 max-w-7xl">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Our Top Services</h2>
                 <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group">
-                    <div class="h-48 bg-gray-200 overflow-hidden">
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Airport Taxi" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition"></div>
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold mb-3 text-gray-900">Airport Transfers</h3>
                         <p class="text-gray-600 mb-6">Punctual pick-ups and drop-offs to Chennai International Airport. Never miss a flight.</p>
                         <a href="services.html" class="text-yellow-600 font-bold hover:text-yellow-700 flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            Learn More <i class="fas fa-arrow-right ml-2 text-sm transition transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group">
-                    <div class="h-48 bg-gray-200 overflow-hidden">
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f7415e?auto=format&fit=crop&w=800&q=80" alt="City Sightseeing" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition"></div>
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold mb-3 text-gray-900">Local Sightseeing</h3>
                         <p class="text-gray-600 mb-6">Explore the beauty of ECR and Chennai with our experienced local drivers.</p>
                         <a href="services.html" class="text-yellow-600 font-bold hover:text-yellow-700 flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            Learn More <i class="fas fa-arrow-right ml-2 text-sm transition transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group">
-                    <div class="h-48 bg-gray-200 overflow-hidden">
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" alt="Outstation Trips" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition"></div>
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold mb-3 text-gray-900">Outstation Trips</h3>
                         <p class="text-gray-600 mb-6">Comfortable rides to Pondicherry, Mahabalipuram, Tirupati, and more.</p>
                         <a href="services.html" class="text-yellow-600 font-bold hover:text-yellow-700 flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            Learn More <i class="fas fa-arrow-right ml-2 text-sm transition transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Happy Customers</h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-md border border-gray-100 relative" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-quote-left text-4xl text-yellow-200 absolute top-6 right-6"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Excellent service! The driver arrived 10 minutes early for our airport drop. Very polite and the Innova was perfectly clean."</p>
+                    <h4 class="font-bold text-gray-900">- Rahul K.</h4>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-md border border-gray-100 relative" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-quote-left text-4xl text-yellow-200 absolute top-6 right-6"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"We booked them for a 2-day trip to Pondicherry. Safe driving on the ECR and very reasonable pricing compared to others."</p>
+                    <h4 class="font-bold text-gray-900">- Priya M.</h4>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-md border border-gray-100 relative" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-quote-left text-4xl text-yellow-200 absolute top-6 right-6"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"I regularly use Balaji Travels for late-night rides from ECR. Highly trustworthy and their customer service is top notch."</p>
+                    <h4 class="font-bold text-gray-900">- Vignesh S.</h4>
                 </div>
             </div>
         </div>
@@ -256,5 +383,38 @@
             </div>
         </div>
     </footer>
+
+    <!-- AOS Initialization -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+          once: true,
+          duration: 800,
+          offset: 100,
+        });
+      });
+      
+      // WhatsApp Booking Function
+      function sendWhatsApp() {
+          const pickup = document.getElementById('pickup').value;
+          const drop = document.getElementById('drop').value;
+          const datetime = document.getElementById('datetime').value;
+          const vehicle = document.getElementById('vehicle').value;
+          
+          if(!pickup || !drop || !datetime) {
+              alert('Please fill out the Pickup, Drop, and Date & Time fields before booking.');
+              return;
+          }
+          
+          const formattedDate = new Date(datetime).toLocaleString('en-IN', {
+              dateStyle: 'medium',
+              timeStyle: 'short'
+          });
+          
+          const message = `Hello Balaji Travels! 🚕%0A%0AI would like to book a cab:%0A%0A*Pickup:* ${pickup}%0A*Drop:* ${drop}%0A*Date & Time:* ${formattedDate}%0A*Vehicle:* ${vehicle}%0A%0APlease confirm the booking and rates. Thank you!`;
+          
+          window.open(`https://wa.me/919363538190?text=${message}`, '_blank');
+      }
+    </script>
 </body>
 </html>
