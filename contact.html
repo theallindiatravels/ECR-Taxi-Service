@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECR Taxi Service Balaji Travels</title>
+    <title>Contact Us - ECR Taxi Service Balaji Travels</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-800 scroll-smooth">
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
     <!-- Navbar -->
     <nav class="bg-yellow-400 text-gray-900 shadow-md p-4 fixed w-full z-50 top-0">
         <div class="container mx-auto flex justify-between items-center">
@@ -24,50 +24,17 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative pt-20 pb-32 flex items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0be2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative z-10 text-center text-white px-4 mt-16">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">ECR Taxi Service</h1>
-            <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-yellow-400 drop-shadow-md">Balaji Travels</h2>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-md">Reliable, safe, and 24/7 taxi service in Chennai. Your journey, our responsibility.</p>
-            <a href="tel:09363538190" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full text-xl font-bold hover:bg-yellow-500 transition shadow-lg inline-block transform hover:scale-105">
-                Book a Ride <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white pt-28">
+    <!-- Page Content -->
+    <div class="flex-grow pt-32 pb-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md text-center hover:shadow-xl transition transform hover:-translate-y-1">
-                    <div class="text-5xl text-yellow-500 mb-4"><i class="fas fa-plane-departure"></i></div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Airport Transfers</h3>
-                    <p class="text-gray-600">Punctual and hassle-free pick-ups and drop-offs to and from Chennai International Airport.</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md text-center hover:shadow-xl transition transform hover:-translate-y-1">
-                    <div class="text-5xl text-yellow-500 mb-4"><i class="fas fa-map-marked-alt"></i></div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Local Sightseeing</h3>
-                    <p class="text-gray-600">Explore Chennai and the beautiful East Coast Road with our experienced drivers.</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md text-center hover:shadow-xl transition transform hover:-translate-y-1">
-                    <div class="text-5xl text-yellow-500 mb-4"><i class="fas fa-route"></i></div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Outstation Trips</h3>
-                    <p class="text-gray-600">Comfortable outstation rides to Pondicherry, Mahabalipuram, and other destinations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-100 pt-28">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Contact Us</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="bg-white p-8 rounded-xl shadow-md h-full flex flex-col justify-center">
-                    <h3 class="text-3xl font-bold mb-8 border-b-2 pb-4 border-yellow-400 inline-block">Get in Touch</h3>
+            <h1 class="text-5xl font-bold text-center mb-12">Contact Us</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="bg-white p-10 rounded-xl shadow-lg border-t-4 border-yellow-400 h-full flex flex-col justify-center">
+                    <h3 class="text-3xl font-bold mb-8 text-gray-900">Get in Touch</h3>
+                    <p class="text-gray-600 text-lg mb-8">Need a ride or have a question? Contact us directly and our team will be happy to assist you.</p>
+                    
                     <div class="space-y-8">
                         <div class="flex items-start">
                             <i class="fas fa-map-marker-alt text-yellow-500 text-3xl mr-6 mt-1 w-8 text-center"></i>
@@ -80,7 +47,9 @@
                             <i class="fas fa-phone text-yellow-500 text-3xl mr-6 mt-1 w-8 text-center"></i>
                             <div>
                                 <h4 class="font-bold text-xl text-gray-900 mb-1">Phone</h4>
-                                <p class="text-gray-600 text-lg"><a href="tel:09363538190" class="hover:text-yellow-600 transition">093635 38190</a></p>
+                                <p class="text-gray-600 text-lg">
+                                    <a href="tel:09363538190" class="hover:text-yellow-600 transition font-bold text-xl">093635 38190</a>
+                                </p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -90,10 +59,18 @@
                                 <p class="text-gray-600 text-lg">Open 24 hours (7 Days a Week)</p>
                             </div>
                         </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-yellow-500 text-3xl mr-6 mt-1 w-8 text-center"></i>
+                            <div>
+                                <h4 class="font-bold text-xl text-gray-900 mb-1">Email</h4>
+                                <p class="text-gray-600 text-lg"><a href="mailto:info@balajitravels.com" class="hover:text-yellow-600 transition">info@balajitravels.com</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="h-full min-h-[400px] rounded-xl overflow-hidden shadow-md">
-                    <!-- Google Maps Embed for Muthukadu -->
+
+                <!-- Google Maps Embed -->
+                <div class="h-full min-h-[500px] rounded-xl overflow-hidden shadow-lg border-2 border-gray-200">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.3787723907727!2d80.23661131482088!3d12.818817290956557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525a83a37210e7%3A0xc48c688c2273af05!2sEast%20Coast%20Rd%2C%20Muthukadu%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                         width="100%" 
@@ -106,7 +83,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
