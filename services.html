@@ -3,72 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - ECR Taxi Service Balaji Travels</title>
+    <title>Services | ECR Taxi Service | Balaji Travels</title>
+    <meta name="description" content="Explore our taxi services in Chennai including Airport Transfers, City Sightseeing, and Outstation trips. Affordable and reliable.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>[x-cloak] { display: none !important; }</style>
 </head>
-<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden flex flex-col min-h-screen">
+
     <!-- Navbar -->
-    <nav class="bg-yellow-400 text-gray-900 shadow-md p-4 fixed w-full z-50 top-0">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-wide">Balaji Travels</div>
-            <div class="hidden md:flex space-x-6 font-semibold">
-                <a href="index.html" class="hover:text-yellow-700 transition">Home</a>
-                <a href="about.html" class="hover:text-yellow-700 transition">About Us</a>
-                <a href="services.html" class="hover:text-yellow-700 transition">Services</a>
-                <a href="contact.html" class="hover:text-yellow-700 transition">Contact</a>
+    <nav x-data="{ open: false }" class="bg-yellow-400 text-gray-900 shadow-lg p-4 fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center max-w-7xl">
+            <a href="index.html" class="flex items-center gap-3">
+                <i class="fas fa-taxi text-3xl md:text-4xl"></i>
+                <div class="flex flex-col">
+                    <span class="text-2xl md:text-3xl font-black tracking-tight leading-none">Balaji Travels</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-800">ECR Taxi Service</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 font-bold text-lg">
+                <a href="index.html" class="text-gray-700 hover:text-gray-900 hover:border-b-2 hover:border-gray-900 pb-1 transition-all">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-gray-900 hover:border-b-2 hover:border-gray-900 pb-1 transition-all">About Us</a>
+                <a href="services.html" class="text-gray-900 border-b-2 border-gray-900 pb-1">Services</a>
+                <a href="contact.html" class="text-gray-700 hover:text-gray-900 hover:border-b-2 hover:border-gray-900 pb-1 transition-all">Contact</a>
             </div>
-            <a href="tel:09363538190" class="bg-gray-900 text-yellow-400 px-4 py-2 rounded-lg font-bold hover:bg-gray-800 transition">
-                <i class="fas fa-phone-alt mr-2"></i> Call Now
+            
+            <a href="tel:09363538190" class="hidden md:flex items-center bg-gray-900 text-yellow-400 px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition shadow-lg transform hover:scale-105">
+                <i class="fas fa-phone-alt mr-2 animate-pulse"></i> 093635 38190
+            </a>
+
+            <button @click="open = !open" class="md:hidden text-gray-900 text-3xl focus:outline-none z-50">
+                <i class="fas fa-bars" x-show="!open"></i>
+                <i class="fas fa-times" x-show="open" x-cloak></i>
+            </button>
+        </div>
+
+        <div x-show="open" @click.away="open = false" x-transition class="md:hidden absolute top-full left-0 w-full bg-yellow-400 shadow-2xl border-t border-yellow-500 flex flex-col font-bold text-lg" x-cloak>
+            <a href="index.html" class="block py-4 px-6 border-b border-yellow-500 hover:bg-yellow-500">Home</a>
+            <a href="about.html" class="block py-4 px-6 border-b border-yellow-500 hover:bg-yellow-500">About Us</a>
+            <a href="services.html" class="block py-4 px-6 border-b border-yellow-500 bg-yellow-500">Services</a>
+            <a href="contact.html" class="block py-4 px-6 border-b border-yellow-500 hover:bg-yellow-500">Contact</a>
+            <a href="tel:09363538190" class="block py-5 px-6 bg-gray-900 text-yellow-400 text-center text-xl hover:bg-gray-800">
+                <i class="fas fa-phone-alt mr-2"></i> Call Now: 093635 38190
             </a>
         </div>
     </nav>
 
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919363538190" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl z-40 hover:bg-green-600 transition transform hover:scale-110 flex items-center justify-center text-3xl">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Page Content -->
-    <div class="flex-grow pt-32 pb-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold text-center mb-12">Our Taxi Services</h1>
+    <div class="flex-grow pt-32 pb-24">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Our Taxi Services</h1>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+            </div>
             
-            <div class="max-w-5xl mx-auto space-y-12">
+            <div class="space-y-12">
                 <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-center gap-8 border-l-4 border-yellow-400">
-                    <div class="text-7xl text-yellow-500 md:w-1/4 text-center">
-                        <i class="fas fa-plane-departure"></i>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row group hover:shadow-2xl transition duration-300">
+                    <div class="md:w-2/5 h-64 md:h-auto bg-gray-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Airport Transfers" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <i class="fas fa-plane-departure absolute bottom-4 left-4 text-4xl text-yellow-400"></i>
                     </div>
-                    <div class="md:w-3/4">
+                    <div class="p-8 md:p-10 md:w-3/5 flex flex-col justify-center">
                         <h3 class="text-3xl font-bold mb-4 text-gray-900">Airport Transfers</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
                             Never worry about missing a flight again. We provide reliable and punctual pick-up and drop-off services to Chennai International Airport. Our drivers monitor traffic conditions to ensure you reach the airport with plenty of time to spare, and they will be waiting for you upon your arrival.
                         </p>
-                        <a href="tel:09363538190" class="text-yellow-600 font-bold hover:text-yellow-700 text-lg">Book Airport Ride &rarr;</a>
+                        <a href="tel:09363538190" class="inline-block bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-yellow-500 transition shadow-md w-max">
+                            <i class="fas fa-phone mr-2"></i> Book Airport Ride
+                        </a>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col md:flex-row-reverse items-center gap-8 border-r-4 border-yellow-400">
-                    <div class="text-7xl text-yellow-500 md:w-1/4 text-center">
-                        <i class="fas fa-map-marked-alt"></i>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row-reverse group hover:shadow-2xl transition duration-300">
+                    <div class="md:w-2/5 h-64 md:h-auto bg-gray-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f7415e?auto=format&fit=crop&w=800&q=80" alt="City Tours" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <i class="fas fa-map-marked-alt absolute bottom-4 left-4 text-4xl text-yellow-400"></i>
                     </div>
-                    <div class="md:w-3/4">
+                    <div class="p-8 md:p-10 md:w-3/5 flex flex-col justify-center">
                         <h3 class="text-3xl font-bold mb-4 text-gray-900">Local Sightseeing & City Rides</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
                             Explore the beauty of Chennai and the famous East Coast Road (ECR). Whether you want to visit Mahabalipuram, Covelong Beach, or explore the city's historic temples and shopping districts, our knowledgeable drivers will ensure you have a comfortable and memorable tour.
                         </p>
-                        <a href="tel:09363538190" class="text-yellow-600 font-bold hover:text-yellow-700 text-lg">Book City Tour &rarr;</a>
+                        <a href="tel:09363538190" class="inline-block bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-yellow-500 transition shadow-md w-max">
+                            <i class="fas fa-phone mr-2"></i> Book City Tour
+                        </a>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-center gap-8 border-l-4 border-yellow-400">
-                    <div class="text-7xl text-yellow-500 md:w-1/4 text-center">
-                        <i class="fas fa-route"></i>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row group hover:shadow-2xl transition duration-300">
+                    <div class="md:w-2/5 h-64 md:h-auto bg-gray-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" alt="Outstation Trips" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <i class="fas fa-route absolute bottom-4 left-4 text-4xl text-yellow-400"></i>
                     </div>
-                    <div class="md:w-3/4">
+                    <div class="p-8 md:p-10 md:w-3/5 flex flex-col justify-center">
                         <h3 class="text-3xl font-bold mb-4 text-gray-900">Outstation Trips</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
                             Planning a weekend getaway? We offer dedicated outstation taxi services to popular destinations like Pondicherry, Bangalore, Tirupati, and beyond. Enjoy a smooth, uninterrupted journey in our comfortable cars tailored for long-distance travel.
                         </p>
-                        <a href="tel:09363538190" class="text-yellow-600 font-bold hover:text-yellow-700 text-lg">Book Outstation Trip &rarr;</a>
+                        <a href="tel:09363538190" class="inline-block bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-yellow-500 transition shadow-md w-max">
+                            <i class="fas fa-phone mr-2"></i> Book Outstation Trip
+                        </a>
                     </div>
                 </div>
             </div>
@@ -76,16 +125,51 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-2xl font-bold text-yellow-400 mb-4">Balaji Travels</h3>
-            <p class="mb-6 max-w-md mx-auto text-gray-400">Your most trusted travel partner on the East Coast Road, Chennai.</p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-whatsapp"></i></a>
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-yellow-400 mt-auto">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <i class="fas fa-taxi text-3xl text-yellow-400"></i>
+                        <div class="text-2xl font-black tracking-tight text-white">Balaji Travels</div>
+                    </a>
+                    <p class="text-gray-400 mb-6 leading-relaxed">Your most trusted and highly rated taxi partner based on the East Coast Road, Chennai.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-yellow-400 hover:text-gray-900 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-yellow-400 hover:text-gray-900 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919363538190" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-400 transition"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-400"></i> Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-yellow-400 transition"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-400"></i> About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-yellow-400 transition"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-400"></i> Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-yellow-400 transition"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-400"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start text-gray-400">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-yellow-400"></i>
+                            <span>East Coast Rd, Muthukadu,<br>Chennai, TN 603112</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-3 text-yellow-400"></i>
+                            <a href="tel:09363538190" class="hover:text-yellow-400 transition">093635 38190</a>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-3 text-yellow-400"></i>
+                            <a href="mailto:info@balajitravels.com" class="hover:text-yellow-400 transition">info@balajitravels.com</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-sm text-gray-500">&copy; 2026 ECR Taxi Service Balaji Travels. All Rights Reserved.</p>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                &copy; 2026 ECR Taxi Service Balaji Travels. All Rights Reserved.
+            </div>
         </div>
     </footer>
 </body>
